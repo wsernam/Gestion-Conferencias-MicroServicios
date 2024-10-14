@@ -13,6 +13,6 @@ import com.mycompany.notify.domain.Notify;
 public class MapperNotificaciones {
 
     public static Notify convertirEventoACreacionNotificacion(String userId, String message) {
-        return new Notify(userId, message);
+        return new Notify();
     }
 }

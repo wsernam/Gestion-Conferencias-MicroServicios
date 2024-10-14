@@ -14,19 +14,15 @@ public class Notify {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "usuario_id")
     private String userId;
     private String message; 
-
-    public Notify(String userId, String message) {
-        this.userId= userId;
-        this.message = message;
-    }
-    
+   
+    // Getters y Setters
     public long getId() {
         return id;
     }
-
-    // Getters y Setters
+    
     public void setId(long id) {    
         this.id = id;
     }

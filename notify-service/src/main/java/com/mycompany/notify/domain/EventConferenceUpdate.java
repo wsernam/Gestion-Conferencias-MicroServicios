@@ -10,14 +10,22 @@ package com.mycompany.notify.domain;
  */
 public class EventConferenceUpdate {
     private String conferenceId;
+    private String name;
     private String newdate;
 
     public EventConferenceUpdate(String conferenceId, String newdate) {
         this.conferenceId = conferenceId;
         this.newdate = newdate;
     }
+    
+    public String getName() {
+        return name;
+    }
 
     // Getters y Setters
+    public void setName(String name) {    
+        this.name = name;
+    }
 
     public String getConferenceId() {
         return conferenceId;

@@ -5,19 +5,24 @@
 package com.mycompany.notify.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 /**
  *
  * @author William Andres
  */
 @Entity
-public class User {
+public class AppUser {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // O cualquier otra estrategia de generación
     private String id;
-    private String nombre;
+    private String name;
 
-    public User(String id, String nombre) {
+    public AppUser(String id, String name) {
         this.id = id;
-        this.nombre = nombre;
+        this.name = name;
     }
 
     // Getters y Setters
@@ -30,11 +35,11 @@ public class User {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -11,7 +11,7 @@ import jakarta.persistence.Entity;
  * @author William Andres
  */
 @Entity
-public class Author extends User {
+public class Author extends AppUser {
     
     public Author(String id, String nombre) {
         super(id, nombre);

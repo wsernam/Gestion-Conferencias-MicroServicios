@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.notify.aplication;
+package com.mycompany.notify.application;
 
 import com.mycompany.notify.domain.Notify;
 import com.mycompany.notify.domain.INotifyServices;
@@ -28,6 +28,6 @@ public class NotifyServices {
     }
 
     public List<Notify> getNotifyForUser(String userId) {
-        return repositoryNotify.findByUsuarioId(userId);
+        return repositoryNotify.findByUserId(userId);
     }
 }
