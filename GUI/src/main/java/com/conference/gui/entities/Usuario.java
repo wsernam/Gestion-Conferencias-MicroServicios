@@ -5,7 +5,7 @@
 package com.conference.gui.entities;
 
 import java.util.ArrayList;
-import org.springframework.core.serializer.Serializer;
+import java.util.List;
 
 /**
  *
@@ -18,7 +18,7 @@ public class Usuario {
     private String email;
     private String organization;
     private String password; 
-    private ArrayList<String> researchfields; 
+    private List<String> researchfields; 
     private Long id;
     
      public Usuario(String name, String lastName, String country, String email, String organization, String password, ArrayList<String> researcherfields) {
@@ -33,11 +33,11 @@ public class Usuario {
      
      public Usuario(){}
      
-    public ArrayList<String> getResearcherfields() {
+    public List<String> getResearcherfields() {
         return researchfields;
     }
 
-    public void setResearcherfields(ArrayList<String> researcherfields) {
+    public void setResearcherfields(List<String> researcherfields) {
         this.researchfields = researcherfields;
     }
     
@@ -91,7 +91,7 @@ public class Usuario {
     
      @Override
     public String toString(){
-        return String.format("{\"name\": \"%s\",\"lastName\": \"%s\",\"organization\": \"%s\",\"searchfields\": %s,\"country\": \"%s\", \"email\": \"%s\",\"password\": \"%s\"}",name,lastName,organization,toStringResearchFields(),country,email,password);
+        return String.format("{\"name\": \"%s\",\"lastName\": \"%s\",\"organization\": \"%s\",\"researchfields\": %s,\"country\": \"%s\", \"email\": \"%s\",\"password\": \"%s\"}",name,lastName,organization,toStringResearchFields(),country,email,password);
     
     }
     
@@ -105,7 +105,7 @@ public class Usuario {
         return researchFields;
     }
 
-    public ArrayList<String> getResearchfields() {
+    public List<String> getResearchfields() {
         return researchfields;
     }
 
