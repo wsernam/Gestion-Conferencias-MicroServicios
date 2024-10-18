@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class NotifyServices {
-
+        
+    @Autowired
+    private EmailServices emailServices;
     private final INotifyServices repositoryNotify;
     @Autowired
     public NotifyServices(INotifyServices repositoryNotify) {
@@ -29,5 +31,13 @@ public class NotifyServices {
 
     public List<Notify> getNotifyForUser(String userId) {
         return repositoryNotify.findByUserId(userId);
+    }
+    
+    public void procesarNotificacion(Notify notify) {
+        // Aquí puedes construir el mensaje y enviar el correo.
+        String destinatario = notify.getEmailUsuario();
+        String asunto = "Nueva notificación";
+        String cuerpo = "Has recibido una nueva notificación: " + notify.getMessage();
+        emailServices.enviarNotificacion(destinatario, asunto, cuerpo);
     }
 }

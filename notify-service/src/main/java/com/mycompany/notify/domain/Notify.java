@@ -17,8 +17,17 @@ public class Notify {
     @Column(name = "usuario_id")
     private String userId;
     private String message; 
-   
+    private String emailUsuario;  // El correo electrónico del usuario que recibirá la notificación
+    
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
     // Getters y Setters
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
+
     public long getId() {
         return id;
     }
