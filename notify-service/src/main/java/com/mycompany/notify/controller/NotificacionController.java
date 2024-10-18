@@ -7,7 +7,10 @@ package com.mycompany.notify.controller;
 import com.mycompany.notify.application.NotifyServices;
 import com.mycompany.notify.domain.Notify;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,16 +26,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class NotificacionController {
 
     @Autowired
-    private NotifyServices notifyServices;
+    private JavaMailSender mailSender;
 
-    // Endpoint para crear una nueva notificación
-    @PostMapping("/api/notificaciones")
-    public ResponseEntity<String> enviarNotificacion(@RequestParam long usuarioId, @RequestParam String mensaje) {
-        Notify notify = new Notify();
-        notify.setId(usuarioId);
-        notify.setMessage(mensaje);
-        notifyServices.procesarNotificacion(notify);
-        return ResponseEntity.ok("Notificación enviada exitosamente.");
+    @PostMapping("/enviar-correo")
+    public ResponseEntity<String> enviarCorreo(
+            @RequestParam String destinatario, 
+            @RequestParam String asunto, 
+            @RequestParam String mensaje) {
+
+        try {
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setTo(destinatario);
+            mailMessage.setSubject(asunto);
+            mailMessage.setText(mensaje);
+            mailSender.send(mailMessage);
+            return ResponseEntity.ok("Correo enviado exitosamente.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al enviar el correo: " + e.getMessage());
+        }
     }
 
 }

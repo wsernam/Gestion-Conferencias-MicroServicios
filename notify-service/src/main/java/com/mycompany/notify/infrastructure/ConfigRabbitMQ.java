@@ -24,10 +24,14 @@ public class ConfigRabbitMQ {
     Spring, y pueden ser inyectados en otras partes de la aplicación. En este caso, 
     el método queueArticuloCreado define y devuelve un bean que representa una 
     cola en RabbitMQ.*/
-    public Queue queueArticuloCreado() {
-        return new Queue("articulos.creados");/*Esta línea crea una nueva instancia
+    public Queue queueArticuloCreadoModificado() {
+        return new Queue("eventos.modificados", true);/*Esta línea crea una nueva instancia
         de la clase Queue, y le asigna el nombre "articulos.creados". Cuando los 
         servicios de tu aplicación quieran enviar o recibir mensajes de esta cola, 
         usarán este nombre para referirse a ella.*/
+    }
+    @Bean
+    public Queue queueArticulosEvaluados() {
+        return new Queue("articulos.evaluados", true);
     }
 }
