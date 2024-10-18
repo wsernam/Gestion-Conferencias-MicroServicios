@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -25,7 +26,7 @@ public class Usuario implements Serializable{
     private String email;
     private String organization;
     private String password; 
-    private ArrayList<String> researcherfields; 
+    private List<String> researchfields; 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 
@@ -78,12 +79,12 @@ public class Usuario implements Serializable{
         this.password = password;
     }
 
-    public ArrayList<String> getResearcherfields() {
-        return researcherfields;
+    public List<String> getResearchfields() {
+        return researchfields;
     }
 
-    public void setResearcherfields(ArrayList<String> researcherfields) {
-        this.researcherfields = researcherfields;
+    public void setResearchfields(List<String> researchfields) {
+        this.researchfields = researchfields;
     }
 
     public Long getId() {

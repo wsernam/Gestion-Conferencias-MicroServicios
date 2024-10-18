@@ -25,16 +25,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements IUserService {
     
-    @Autowired
-    private RabbitTemplate template;
     
-    @Autowired
-    @Qualifier("acknowledge_register")
-    private  Queue queue_register;
-    
-    @Autowired
-    @Qualifier("acknowledge_login")
-    private  Queue queue_login;
     
     @Autowired
     IUserRepository userAccess; 
@@ -85,25 +76,5 @@ public class UserService implements IUserService {
         Usuario us = userAccess.findById(id).orElse(null);
         return us;
     }
-    
-    @RabbitListener(queues = {"${easyconference.queue.login}"})
-    public void received_login_request(@Payload Login message){
-        Usuario us = login(message.getEmail(), message.getPassword());
-        send_acknowledgment_login(us);
-    }
-    
-     @RabbitListener(queues = {"${easyconference.queue.register}"})
-    public void received_register_request(@Payload Usuario message){
-        Usuario us = register(message);
-        send_acknowledgment_register(us);
-    }
-            
-    public void send_acknowledgment_login(Usuario us){
-         template.convertAndSend(queue_login.getName(), us);
-    }
-    
-    public void send_acknowledgment_register(Usuario us){
-         template.convertAndSend(queue_register.getName(), us);
-    }
-    
+   
 }
