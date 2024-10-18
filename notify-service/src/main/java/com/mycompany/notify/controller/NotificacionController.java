@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,9 +26,13 @@ public class NotificacionController {
     private NotifyServices notifyServices;
 
     // Endpoint para crear una nueva notificación
-    @PostMapping
-    public ResponseEntity<String> enviarNotificacion(@RequestBody Notify notify) {
-        notifyServices.procesarNotificacion(notify);  // Llama al servicio para procesar la notificación
+    @PostMapping("/api/notificaciones")
+    public ResponseEntity<String> enviarNotificacion(@RequestParam long usuarioId, @RequestParam String mensaje) {
+        Notify notify = new Notify();
+        notify.setId(usuarioId);
+        notify.setMessage(mensaje);
+        notifyServices.procesarNotificacion(notify);
         return ResponseEntity.ok("Notificación enviada exitosamente.");
     }
+
 }
