@@ -4,13 +4,15 @@
  */
 package com.conference.usuarios.access;
 
-import com.conference.usuarios.domain.User;
+import com.conference.usuarios.domain.Usuario;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Ashlee Campaz
  */
-public interface IUserRepository extends CrudRepository<User, Long> {
+@Repository
+public interface IUserRepository extends CrudRepository<Usuario, Long> {
     
 }

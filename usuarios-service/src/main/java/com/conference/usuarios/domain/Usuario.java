@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -16,8 +17,8 @@ import java.util.ArrayList;
  * @author Ashlee Campaz
  */
 @Entity
-@Table (name = "user")
-public class User {
+@Table (name = "Usuario")
+public class Usuario implements Serializable{
     private String name;
     private String lastName;
     private String country;

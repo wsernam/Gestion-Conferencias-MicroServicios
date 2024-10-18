@@ -4,7 +4,7 @@
  */
 package com.conference.usuarios.services;
 
-import com.conference.usuarios.domain.User;
+import com.conference.usuarios.domain.Usuario;
 import java.util.List;
 
 /**
@@ -12,9 +12,9 @@ import java.util.List;
  * @author Ashlee Campaz
  */
 public interface IUserService {
-    public User login(String us,String password);
-    public User register(User us); 
+    public Usuario login(String us,String password);
+    public Usuario register(Usuario us); 
     public boolean isEmailRegistered(String email);
-    public List<User> findAll();
-    public User findById(Long id);
+    public List<Usuario> findAll();
+    public Usuario findById(Long id);
 }
