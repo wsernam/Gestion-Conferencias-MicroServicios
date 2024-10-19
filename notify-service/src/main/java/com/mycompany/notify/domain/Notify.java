@@ -15,15 +15,23 @@ public class Notify {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "usuario_id")
-    private String userId;
     private String message; 
+    private String subject;
     private String emailUsuario;  // El correo electrónico del usuario que recibirá la notificación
+    // Getters y Setters
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
     
     public String getEmailUsuario() {
         return emailUsuario;
     }
-
-    // Getters y Setters
+    
     public void setEmailUsuario(String emailUsuario) {
         this.emailUsuario = emailUsuario;
     }
@@ -35,15 +43,7 @@ public class Notify {
     public void setId(long id) {    
         this.id = id;
     }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
+    
     public String getMessage() {
         return message;
     }

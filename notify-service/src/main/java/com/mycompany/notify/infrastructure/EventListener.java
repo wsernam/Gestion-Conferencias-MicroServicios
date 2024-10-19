@@ -45,7 +45,6 @@ public class EventListener {
         // Crear una notificación para la evaluación del artículo
         Notify notify = new Notify();
         notify.setMessage("Artículo evaluado: " + event.getArticleTitle() + " por el usuario " + event.getUserId());
-        notify.setUserId(event.getAuthorId());  // Notificar al autor del artículo
 
         // Guardar la notificación en la base de datos
         notifyServices.saveNotify(notify);
@@ -60,7 +59,6 @@ public class EventListener {
         // Crear una notificación para la creación o modificación del artículo
         Notify notify = new Notify();
         notify.setMessage("Artículo " + tipoEvento + ": " + event.getTittle());
-        notify.setUserId(event.getAuthorId());
 
         // Guardar la notificación en la base de datos
         notifyServices.saveNotify(notify);
