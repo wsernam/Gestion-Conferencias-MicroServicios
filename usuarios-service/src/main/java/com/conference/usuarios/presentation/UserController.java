@@ -4,14 +4,15 @@
  */
 package com.conference.usuarios.presentation;
 
-import com.conference.gui.entities.Login;
+
+import com.conference.usuarios.domain.Login;
 import com.conference.usuarios.domain.Usuario;
 import com.conference.usuarios.services.IUserService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;

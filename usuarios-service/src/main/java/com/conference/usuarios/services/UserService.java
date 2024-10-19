@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.conference.usuarios.services;
-
-import com.conference.gui.entities.Login;
 import com.conference.usuarios.access.IUserRepository;
 import com.conference.usuarios.domain.Usuario;
 import jakarta.transaction.Transactional;
