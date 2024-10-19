@@ -27,7 +27,7 @@ public class ControladorConferencia {
 		objConferencia = servicioConferencia.setConferencia(prmConferencia);
 		return objConferencia;
   }
-  @GetMapping("/conferencia/{id}")
+  @GetMapping("/conferencia/{prmId}")
 public boolean consultarConferencia(@PathVariable Integer prmId){
     return servicioConferencia.existeConferencia(prmId);
 }
