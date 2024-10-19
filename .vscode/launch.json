@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ConferenciaMicroservicioApplication<conferencia_microservicio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "co.unicauca.edu.conferencia_microservicio.ConferenciaMicroservicioApplication",
+            "projectName": "conferencia_microservicio",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
