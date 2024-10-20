@@ -22,7 +22,6 @@ public class NotifyServices {
     @Autowired
     private JavaMailSender mailSender;
     private final INotifyServices repositoryNotify;
-    @Autowired
     public NotifyServices(INotifyServices repositoryNotify) {
         this.repositoryNotify = repositoryNotify;
     }
@@ -31,8 +30,8 @@ public class NotifyServices {
         repositoryNotify.save(notify);
     }
 
-    public List<Notify> getNotifyForUser(String userId) {
-        return repositoryNotify.findByUserId(userId);
+    public List<Notify> getNotifyForUser(String emailUser) {
+        return repositoryNotify.findByEmailUsuario(emailUser);
     }
     
     public void procesarNotificacion(Notify notify) {

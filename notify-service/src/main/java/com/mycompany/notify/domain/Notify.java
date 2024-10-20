@@ -14,9 +14,9 @@ public class Notify {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "usuario_id")
     private String message; 
     private String subject;
+    @Column(name = "emailUsuario")
     private String emailUsuario;  // El correo electrónico del usuario que recibirá la notificación
     // Getters y Setters
 

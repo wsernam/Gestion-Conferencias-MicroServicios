@@ -17,21 +17,21 @@ import jakarta.persistence.Id;
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // O cualquier otra estrategia de generación
-    private String id;
+    private Long id;
     private String name;
 
-    public AppUser(String id, String name) {
+    public AppUser(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
     // Getters y Setters
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
