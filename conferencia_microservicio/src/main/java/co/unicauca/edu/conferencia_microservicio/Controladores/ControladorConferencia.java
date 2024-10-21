@@ -3,6 +3,7 @@ package co.unicauca.edu.conferencia_microservicio.Controladores;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,20 +16,23 @@ import co.unicauca.edu.conferencia_microservicio.fachadaServicios.servicios.ISer
 @RestController
 @RequestMapping("/api")
 public class ControladorConferencia {
-     @Autowired
+  @Autowired
   private IServicioConferencia servicioConferencia;
+  @Autowired
+
   @GetMapping("/conferencias")
   public List<ConferenciaDTO> listarConferencia(){
     return servicioConferencia.getConferencias();
   } 
-  @PostMapping("/conferencias")
-  public ConferenciaDTO registrarConferencia(@RequestBody ConferenciaDTO prmConferencia){
-    ConferenciaDTO objConferencia = null;
-		objConferencia = servicioConferencia.setConferencia(prmConferencia);
-		return objConferencia;
+  @PostMapping("/registrarConferencia")
+  public ResponseEntity<ConferenciaDTO> registrarConferencia(@RequestBody ConferenciaDTO conferenciaDTO) {
+    // Delegar la lógica al servicio
+    ConferenciaDTO conferenciaRegistrada = servicioConferencia.setConferencia(conferenciaDTO);
+    return ResponseEntity.ok(conferenciaRegistrada);
+  
   }
   @GetMapping("/conferencia/{prmId}")
-public boolean consultarConferencia(@PathVariable Integer prmId){
+  public boolean consultarConferencia(@PathVariable Integer prmId){
     return servicioConferencia.existeConferencia(prmId);
-}
+  }
 }

@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class ConferenciaDTO {
-     int id;
+    int id;
     String nombre;
     int cantidadMaxArticulos;
     private List<Articulo> articuloList= new ArrayList<>();

@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +19,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Entity
-public class Conferencia {
+public class Conferencia implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -30,6 +32,7 @@ public class Conferencia {
     /**FetchType.LAZI hará que los articulos solo se carguen cuando se intente acceder a ellos */
     @OneToMany(mappedBy = "conferencia", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Articulo> articuloList= new ArrayList<>();
+    
     public Conferencia(){
 
     }
