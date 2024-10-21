@@ -4,7 +4,9 @@
  */
 package com.mycompany.notify.infrastructure;
 
-import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,26 +14,18 @@ import org.springframework.context.annotation.Configuration;
  *
  * @author William Andres
  */
-@Configuration/*La anotación @Configuration indica que la clase ConfigRabbitMQ 
-es una clase de configuración en Spring. Esto significa que se utilizará para 
-definir beans que el contenedor de Spring gestionará. En este caso, la clase define 
-un bean que representa una cola (queue) de RabbitMQ.*/
+@Configuration
 public class ConfigRabbitMQ {
 
-    @Bean/*La anotación @Bean se utiliza para marcar un método como un productor
-    de un bean que será gestionado por el contenedor de Spring. Los beans son 
-    objetos que son creados, configurados y administrados por el contenedor de 
-    Spring, y pueden ser inyectados en otras partes de la aplicación. En este caso, 
-    el método queueArticuloCreado define y devuelve un bean que representa una 
-    cola en RabbitMQ.*/
-    public Queue queueArticuloCreadoModificado() {
-        return new Queue("eventos.modificados", true);/*Esta línea crea una nueva instancia
-        de la clase Queue, y le asigna el nombre "articulos.creados". Cuando los 
-        servicios de tu aplicación quieran enviar o recibir mensajes de esta cola, 
-        usarán este nombre para referirse a ella.*/
-    }
     @Bean
-    public Queue queueArticulosEvaluados() {
-        return new Queue("articulos.evaluados", true);
+    public Jackson2JsonMessageConverter jsonMessageConverter() {
+        return new Jackson2JsonMessageConverter();
+    }
+
+    @Bean
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        rabbitTemplate.setMessageConverter(jsonMessageConverter());
+        return rabbitTemplate;
     }
 }
