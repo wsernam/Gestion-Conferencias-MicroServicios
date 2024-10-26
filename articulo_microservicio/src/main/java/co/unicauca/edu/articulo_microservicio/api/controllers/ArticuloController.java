@@ -2,10 +2,9 @@ package co.unicauca.edu.articulo_microservicio.api.controllers;
 
 import co.unicauca.edu.articulo_microservicio.domain.services.IArticuloService;
 import co.unicauca.edu.articulo_microservicio.shared.dto.ArticuloDTO;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 /**
  *
  * @author sonhuila
@@ -29,10 +27,10 @@ public class ArticuloController {
 
     /*Recibe articulo a registrar y retorna el articulo registrado*/
     @PostMapping("/articulos")
-    public ArticuloDTO crearArticulo(@RequestBody ArticuloDTO articulo) {
+    public ResponseEntity<ArticuloDTO> crearArticulo(@RequestBody ArticuloDTO articulo) {
         ArticuloDTO objArticulo = null;
         objArticulo = articuloService.save(articulo);
-        return objArticulo;
+        return ResponseEntity.ok(objArticulo);
     }
 
     /*Recibe ID de articulo y retorna el articulo que corresponde al ID*/
