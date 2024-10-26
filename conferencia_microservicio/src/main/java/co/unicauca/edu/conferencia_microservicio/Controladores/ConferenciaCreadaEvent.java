@@ -1,8 +1,6 @@
 package co.unicauca.edu.conferencia_microservicio.Controladores;
 
-import co.unicauca.edu.conferencia_microservicio.AccesoADatos.modelos.Articulo;
 import java.io.Serializable;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 

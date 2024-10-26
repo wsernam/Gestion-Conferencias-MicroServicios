@@ -5,12 +5,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import co.unicauca.edu.conferencia_microservicio.AccesoADatos.Repositorio.IRepositorioConferencia;
 import co.unicauca.edu.conferencia_microservicio.AccesoADatos.modelos.Conferencia;
 import co.unicauca.edu.conferencia_microservicio.Controladores.ConferenciaCreadaEvent;
 import co.unicauca.edu.conferencia_microservicio.fachadaServicios.DTO.ConferenciaDTO;
-
 import org.modelmapper.TypeToken;
 
 @Service
