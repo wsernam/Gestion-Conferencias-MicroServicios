@@ -1,10 +1,11 @@
-package co.unicauca.edu.articulo_microservicio.shared.dto;
+package co.unicauca.edu.articulo_microservicio.DTO.CRUDArticulosDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,11 +15,13 @@ import java.util.ArrayList;
 @Setter 
 @AllArgsConstructor
 public class ArticuloDTO {
-    private int idArticulo;
+    private static final long serialVersionUID = 1L;
+    private Integer idArticulo;
     private String nombre;
     private ArrayList<String> autores;
     private String resumen;
     private String palabrasClaves;
+    private List<ConferenciaDTO> objConferencias;
     
     public ArticuloDTO()
     {

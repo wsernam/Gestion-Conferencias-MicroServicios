@@ -1,7 +1,7 @@
 package co.unicauca.edu.articulo_microservicio.api.controllers;
 
 import co.unicauca.edu.articulo_microservicio.domain.services.IArticuloService;
-import co.unicauca.edu.articulo_microservicio.shared.dto.ArticuloDTO;
+import co.unicauca.edu.articulo_microservicio.DTO.CRUDArticulosDTO.ArticuloDTO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
