@@ -194,6 +194,11 @@ public class GUIregister extends javax.swing.JFrame {
                 btnRegistrarMouseClicked(evt);
             }
         });
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 10;
@@ -379,6 +384,10 @@ public class GUIregister extends javax.swing.JFrame {
             pswdfConContrasenia.setEchoChar((char) 0);
         }
     }//GEN-LAST:event_lbMostrarContraseniaMouseClicked
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

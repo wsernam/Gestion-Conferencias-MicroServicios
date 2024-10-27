@@ -25,7 +25,7 @@ import java.net.http.HttpResponse;
 public class UserClient implements IUserRestClient {
      private static final String USER_AGENT = "GUILogin";
      
-     private String urlUserService = "http://localhost:8090/user";
+     private String urlUserService = "http://localhost:8097/user";
      public UserClient (){
      
      }

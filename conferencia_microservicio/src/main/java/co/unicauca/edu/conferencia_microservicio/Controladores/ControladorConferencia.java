@@ -25,7 +25,7 @@ public class ControladorConferencia {
   } 
   @PostMapping("/registrarConferencia")
   public ResponseEntity<ConferenciaDTO> registrarConferencia(@RequestBody ConferenciaDTO conferenciaDTO) {
-    // Delegar la lógica al servicio
+ 
     ConferenciaDTO conferenciaRegistrada = servicioConferencia.setConferencia(conferenciaDTO);
     return ResponseEntity.ok(conferenciaRegistrada);
   }

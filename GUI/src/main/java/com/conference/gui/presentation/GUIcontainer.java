@@ -2,6 +2,7 @@
 package com.conference.gui.presentation;
 
 import com.conference.gui.clients.UserClient;
+import com.conference.gui.conference.UserConference;
 import com.conference.gui.entities.Articulo;
 import com.conference.gui.entities.Conference;
 import com.conference.gui.entities.Usuario;
@@ -405,7 +406,9 @@ public class GUIcontainer extends javax.swing.JFrame {
     }//GEN-LAST:event_lbCrearConMouseExited
 
     private void lbCrearConMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCrearConMouseClicked
-        /**GUIcreateConference crearConferencia = new GUIcreateConference(conferenceService);
+          UserConference conference = new UserConference();
+       
+        GUIcreateConference crearConferencia = new GUIcreateConference(conference);
         try {
             crearConferencia.setMaximum(true);
         } catch (PropertyVetoException ex) {
@@ -413,7 +416,7 @@ public class GUIcontainer extends javax.swing.JFrame {
         }
 
         dskpaneContenedor.add(crearConferencia, java.awt.BorderLayout.CENTER);
-        crearConferencia.setVisible(true);*/
+        crearConferencia.setVisible(true);
     }//GEN-LAST:event_lbCrearConMouseClicked
 
     private void lbBtnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBtnBuscarMouseClicked

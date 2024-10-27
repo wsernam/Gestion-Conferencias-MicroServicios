@@ -5,6 +5,8 @@
 package com.conference.gui;
 
 import com.conference.gui.clients.UserClient;
+import com.conference.gui.conference.UserConference;
+import com.conference.gui.presentation.GUIcreateConference;
 import com.conference.gui.presentation.GUIlogin;
 
 /**
@@ -17,6 +19,9 @@ public class GUI {
     public static void main(String[] args) {
         UserClient userclient = new UserClient(); 
         GUIlogin login = new GUIlogin(userclient);
+        
+        UserConference conference = new UserConference();
+        GUIcreateConference GUIconference= new GUIcreateConference(conference);
         login.setLocationRelativeTo(null);
         login.setVisible(true);
     }
