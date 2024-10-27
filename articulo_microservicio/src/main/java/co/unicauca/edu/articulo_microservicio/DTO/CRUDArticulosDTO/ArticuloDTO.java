@@ -26,8 +26,4 @@ public class ArticuloDTO {
     public ArticuloDTO()
     {
     }
-
-    public void setId(Integer idArticulo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
