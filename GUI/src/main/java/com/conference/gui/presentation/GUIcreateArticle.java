@@ -288,6 +288,7 @@ public class GUIcreateArticle extends javax.swing.JInternalFrame {
                 if (articuloGuardado != null) {
                     mostrarMensajeExito("Artículo enviado exitosamente con ID: " + articuloGuardado.getIdArticulo());
                     this.dispose();
+                    
                 } else {
                     mostrarMensajeError("No se pudo registrar el artículo.");
                 }
@@ -328,6 +329,8 @@ public class GUIcreateArticle extends javax.swing.JInternalFrame {
     private void mostrarMensajeExito(String mensaje) {
         lastDialogMessage = mensaje;// Actualiza el mensaje
         javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+      
+        
     }
 
     private void mostrarMensajeError(String mensaje) {

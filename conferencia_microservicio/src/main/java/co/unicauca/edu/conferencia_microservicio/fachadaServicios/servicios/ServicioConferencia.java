@@ -27,6 +27,8 @@ public class ServicioConferencia implements IServicioConferencia {
         }.getType());
         return ConferenciasDto;
     }
+
+    
     
         @Override
         public ConferenciaDTO setConferencia(ConferenciaDTO prmConferencia) {
