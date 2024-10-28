@@ -7,6 +7,8 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  *
  * @author sonhuila
@@ -14,6 +16,7 @@ import java.util.List;
 @Getter 
 @Setter 
 @AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true) // Ignorar propiedades desconocidas
 public class ArticuloDTO {
     private static final long serialVersionUID = 1L;
     private Integer idArticulo;

@@ -19,6 +19,27 @@
             "mainClass": "com.conference.usuarios.UsuariosService",
             "projectName": "usuarios-service",
             "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53617 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=usuarios-service"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ArticuloMicroservicioApplication<articulo_microservicio>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "co.unicauca.edu.articulo_microservicio.ArticuloMicroservicioApplication",
+            "projectName": "articulo_microservicio",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Main<notify-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mycompany.notify.Main",
+            "projectName": "notify-service",
+            "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
     ]

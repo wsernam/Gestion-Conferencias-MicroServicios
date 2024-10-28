@@ -1,6 +1,7 @@
 package com.conference.gui.article;
 
 import com.conference.gui.entities.Articulo;
+import java.util.List;
 
 /**
  *
@@ -8,4 +9,5 @@ import com.conference.gui.entities.Articulo;
  */
 public interface IArticleRest {
     public Articulo save(Articulo articulo);
+     public List<Articulo> getArticulos();
 }
