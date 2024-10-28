@@ -479,7 +479,17 @@ pnlListadoCon.removeAll();  // Limpiamos el contenido actual del panel de confer
     }//GEN-LAST:event_lbCerrarSesionMouseClicked
 
     private void lbCrearCon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCrearCon1MouseClicked
-        // TODO add your handling code here:
+        UserConference conference = new UserConference();
+       
+        GUIcreateConference crearConferencia = new GUIcreateConference(objConference);
+        try {
+            crearConferencia.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(GUIcontainer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        dskpaneContenedor.add(crearConferencia, java.awt.BorderLayout.CENTER);
+        crearConferencia.setVisible(true);
     }//GEN-LAST:event_lbCrearCon1MouseClicked
 
     private void lbCrearCon1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbCrearCon1MouseEntered
