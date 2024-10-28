@@ -467,62 +467,64 @@ public class GUIcreateConference extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_pnlBotonGuardarMouseEntered
 
     private void pnlBotonGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlBotonGuardarMouseClicked
+
     try {
-            // Recolección de los datos desde los textboxes, aplicando trim() a cada campo
-            String nombre = txtfNombre.getText().trim();
-            String temas = "muchos";
-            String entidadOrganizadora = "unicauca";
-            String fechaInicio = "27-11-2024"; // Formato: dd-MM-yyyy
-            String fechaFin = "30-11-2024";       // Formato: dd-MM-yyyy
-            String plazoMaxRec = "20-11-2024"; // Formato: dd-MM-yyyy
-            String maxArt = "30";
-            String plazoMaxEva = "25-11-2024"; // Formato: dd-MM-yyyy
-            String maxCalAcep = "5";
-            String maxArtAcep = "20";
-            String pais = "colombia";
-            String ciudad = "popayan";
-            String estado = "cauca";
-            String direccion = "uni";
+        // Recolección de los datos desde los textboxes, aplicando trim() a cada campo
+        String nombre = txtfNombre.getText().trim();
+        String temas = txtfTemas.getText().trim();
+        String entidadOrganizadora = txtfEntOrganizadora.getText().trim();
+        String fechaInicio = txtfFechaInicio.getText().trim(); // Formato esperado: dd-MM-yyyy
+        String fechaFin = txtfFechaFin.getText().trim();       // Formato esperado: dd-MM-yyyy
+        String plazoMaxRec = txtfPlazoMaxRec.getText().trim(); // Formato esperado: dd-MM-yyyy
+        String maxArt = txtfMaxArt.getText().trim();
+        String plazoMaxEva = txtfPlazoMaxEva.getText().trim(); // Formato esperado: dd-MM-yyyy
+        String maxCalAcep = txtfMaxCalAcep.getText().trim();
+        String maxArtAcep = txtfMaxArtAcep.getText().trim();
+        String pais = txtfPais.getText().trim();
+        String ciudad = txtfCiudad.getText().trim();
+        String estado = txtfEstado.getText().trim();
+        String direccion = txtfDireccion.getText().trim();
 
-            // Validación de campos vacíos
-            if (nombre.isEmpty() || temas.isEmpty() || entidadOrganizadora.isEmpty() || fechaInicio.isEmpty() || fechaFin.isEmpty() ||
-                plazoMaxRec.isEmpty() || maxArt.isEmpty() || plazoMaxEva.isEmpty() || maxCalAcep.isEmpty() || maxArtAcep.isEmpty() ||
-                pais.isEmpty() || ciudad.isEmpty() || estado.isEmpty() || direccion.isEmpty()) {
+        // Validación de campos vacíos
+        if (nombre.isEmpty() || temas.isEmpty() || entidadOrganizadora.isEmpty() || fechaInicio.isEmpty() || fechaFin.isEmpty() ||
+            plazoMaxRec.isEmpty() || maxArt.isEmpty() || plazoMaxEva.isEmpty() || maxCalAcep.isEmpty() || maxArtAcep.isEmpty() ||
+            pais.isEmpty() || ciudad.isEmpty() || estado.isEmpty() || direccion.isEmpty()) {
 
-                showMessage("Todos los campos deben ser completados.");
-                return;
-            }
+            showMessage("Todos los campos deben ser completados.");
+            return;
+        }
 
-            // Verificación previa de los campos numéricos para evitar NumberFormatException
-            int numMaxArt;
-            int numMaxArtAcep;
-            float calMinima;
+        // Verificación previa de los campos numéricos para evitar NumberFormatException
+        int numMaxArt;
+        int numMaxArtAcep;
+        float calMinima;
 
-            try {
-                numMaxArt = Integer.parseInt(maxArt); // Validar maxArt
-            } catch (NumberFormatException e) {
-                showMessage("Error: El campo 'Número máximo de artículos' debe ser un número entero.");
-                return;
-            }
+        try {
+            numMaxArt = Integer.parseInt(maxArt); // Validar maxArt
+        } catch (NumberFormatException e) {
+            showMessage("Error: El campo 'Número máximo de artículos' debe ser un número entero.");
+            return;
+        }
 
-            try {
-                numMaxArtAcep = Integer.parseInt(maxArtAcep); // Validar maxArtAcep
-            } catch (NumberFormatException e) {
-                showMessage("Error: El campo 'Número máximo de artículos aceptados' debe ser un número entero.");
-                return;
-            }
+        try {
+            numMaxArtAcep = Integer.parseInt(maxArtAcep); // Validar maxArtAcep
+        } catch (NumberFormatException e) {
+            showMessage("Error: El campo 'Número máximo de artículos aceptados' debe ser un número entero.");
+            return;
+        }
 
-            try {
-                calMinima = Float.parseFloat(maxCalAcep); // Validar maxCalAcep
-            } catch (NumberFormatException e) {
-                showMessage("Error: El campo 'Calificación mínima' debe ser un número decimal.");
-                return;
-            }
+        try {
+            calMinima = Float.parseFloat(maxCalAcep); // Validar maxCalAcep
+        } catch (NumberFormatException e) {
+            showMessage("Error: El campo 'Calificación mínima' debe ser un número decimal.");
+            return;
+        }
 
-            // Formato de fecha esperado
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        // Formato de fecha esperado
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-            // Parseo de fechas
+        // Parseo de fechas
+        try {
             LocalDate fechaInicioLD = LocalDate.parse(fechaInicio, formatter);
             LocalDate fechaFinLD = LocalDate.parse(fechaFin, formatter);
             LocalDate plazoMaxRecLD = LocalDate.parse(plazoMaxRec, formatter);
@@ -530,8 +532,8 @@ public class GUIcreateConference extends javax.swing.JInternalFrame {
             LocalDate fechaActual = LocalDate.now();
 
             // Validar fecha de inicio (debe ser al menos un mes mayor que la actual y menor a la fecha fin)
-            if (ChronoUnit.MONTHS.between(fechaActual, fechaInicioLD) < 1) {
-                showMessage("La fecha de inicio debe ser al menos un mes después de la actual.");
+            if (ChronoUnit.DAYS.between(fechaActual, fechaInicioLD) < 30) {
+                showMessage("La fecha de inicio debe ser al menos 30 días después de la actual.");
                 return;
             }
             if (fechaInicioLD.isAfter(fechaFinLD)) {
@@ -545,15 +547,15 @@ public class GUIcreateConference extends javax.swing.JInternalFrame {
                 return;
             }
 
-            // Validar plazo máximo de recepción de artículos (debe ser antes de la fecha de inicio)
+            // Validar plazo máximo de recepción de artículos (debe ser antes de la fecha de inicio y después de la fecha actual)
             if (plazoMaxRecLD.isAfter(fechaInicioLD) || plazoMaxRecLD.isBefore(fechaActual)) {
-                showMessage("La recepción de artículos debe realizarse antes de la fecha de inicio.");
+                showMessage("La recepción de artículos debe realizarse antes de la fecha de inicio y no puede ser en el pasado.");
                 return;
             }
 
-            // Validar plazo máximo de evaluación de artículos (debe ser antes de la fecha de inicio)
-            if (plazoMaxEvaLD.isAfter(fechaInicioLD) || plazoMaxEvaLD.isBefore(fechaActual)) {
-                showMessage("La evaluación de artículos debe realizarse antes de la fecha de inicio.");
+            // Validar plazo máximo de evaluación de artículos (debe ser antes de la fecha de fin)
+            if (plazoMaxEvaLD.isAfter(fechaFinLD) || plazoMaxEvaLD.isBefore(plazoMaxRecLD)) {
+                showMessage("La evaluación de artículos debe realizarse antes de la fecha de fin y después de la recepción.");
                 return;
             }
 
@@ -563,25 +565,26 @@ public class GUIcreateConference extends javax.swing.JInternalFrame {
                 return;
             }
 
-            // Si todas las validaciones pasan, crear el objeto Conference con los datos que POR AHORA nesecitamos
-            Conference conferencia = new Conference(nombre,  numMaxArt);
-            Conference result= conferenceService.setConferencia(conferencia);
+            // Si todas las validaciones pasan, crear el objeto Conference con los datos que POR AHORA necesitamos
+            Conference conferencia = new Conference(nombre, numMaxArt);
+            Conference result = conferenceService.setConferencia(conferencia);
 
             // Guardar la conferencia o realizar la acción que corresponda
-            if(result !=null){
-           
-            showMessage("Conferencia registrada exitosamente.");
-            GUIcontainer container = new GUIcontainer();
-            container.listConferences("");
+            if (result != null) {
+                showMessage("Conferencia registrada exitosamente.");
+                GUIcontainer container = new GUIcontainer();
+                container.listConferences("");
             }
-           
+
             this.dispose();
-            
+
         } catch (DateTimeParseException e) {
             showMessage("Error: Formato de fecha no válido. Debe ser dd-MM-yyyy.");
-        } catch (Exception e) {
-            showMessage("Error: " + e.getMessage());
         }
+        
+    } catch (Exception e) {
+        showMessage("Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_pnlBotonGuardarMouseClicked
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
