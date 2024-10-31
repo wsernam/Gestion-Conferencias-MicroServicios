@@ -1,9 +1,13 @@
 package co.edu.unicauca.gui.vistas.articulos;
 
 import co.edu.unicauca.gui.models.Articulo;
+<<<<<<< Updated upstream
 import co.edu.unicauca.gui.models.Conferencia;
 import co.edu.unicauca.gui.servicios.ArticuloServices;
 import java.util.stream.Collectors;
+=======
+import co.edu.unicauca.gui.servicios.ArticuloServices;
+>>>>>>> Stashed changes
 
 /**
  *
@@ -46,8 +50,11 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
         jLabelMResumen = new javax.swing.JLabel();
         jLabelMIdArticulo = new javax.swing.JLabel();
         jLabelMNombre = new javax.swing.JLabel();
+<<<<<<< Updated upstream
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaConferencias = new javax.swing.JTextArea();
+=======
+>>>>>>> Stashed changes
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,7 +140,11 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
                     .addComponent(jLabelMAutores)
                     .addComponent(jLabelMNombre)
                     .addComponent(jLabelMIdArticulo))
+<<<<<<< Updated upstream
                 .addContainerGap(118, Short.MAX_VALUE))
+=======
+                .addContainerGap(195, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
         jPanelMostrarDatosLayout.setVerticalGroup(
             jPanelMostrarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +153,11 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMostrarDatosLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabelMIdArticulo)
+<<<<<<< Updated upstream
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+                        .addGap(12, 12, 12)
+>>>>>>> Stashed changes
                         .addComponent(jLabelMNombre)
                         .addGap(16, 16, 16)
                         .addComponent(jLabelMAutores)
@@ -160,15 +175,19 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28))
         );
 
+<<<<<<< Updated upstream
         jTextAreaConferencias.setColumns(20);
         jTextAreaConferencias.setRows(5);
         jScrollPane1.setViewportView(jTextAreaConferencias);
 
+=======
+>>>>>>> Stashed changes
         javax.swing.GroupLayout jPanelMedioLayout = new javax.swing.GroupLayout(jPanelMedio);
         jPanelMedio.setLayout(jPanelMedioLayout);
         jPanelMedioLayout.setHorizontalGroup(
             jPanelMedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMedioLayout.createSequentialGroup()
+<<<<<<< Updated upstream
                 .addGap(50, 50, 50)
                 .addGroup(jPanelMedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelMostrarMensaje)
@@ -185,6 +204,23 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
+=======
+                .addGroup(jPanelMedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelMedioLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanelMedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelMostrarMensaje)
+                            .addGroup(jPanelMedioLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldIdArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(jButtonConsultar))))
+                    .addGroup(jPanelMedioLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jPanelMostrarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(256, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
         jPanelMedioLayout.setVerticalGroup(
             jPanelMedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,9 +233,13 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelMostrarMensaje)
                 .addGap(18, 18, 18)
+<<<<<<< Updated upstream
                 .addGroup(jPanelMedioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addComponent(jPanelMostrarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addComponent(jPanelMostrarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> Stashed changes
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -221,6 +261,7 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
             this.jLabelMIdArticulo.setText(objArticulo.getIdArticulo() + "");
             this.jLabelMNombre.setText(objArticulo.getTitulo());
             this.jLabelMAutores.setText(objArticulo.getAutores());
+<<<<<<< Updated upstream
             this.jLabelMResumen.setText(objArticulo.getResumen() + "");
             // Convertir la lista de Conferencia a una lista de Strings con el nombre de cada conferencia
             String conferenciasTexto = objArticulo.getConferencias().stream()
@@ -229,6 +270,9 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
 
                     // Mostrar el texto en el JTextArea o JLabel
                      this.jTextAreaConferencias.setText(conferenciasTexto);
+=======
+            this.jLabelMResumen.setText(objArticulo.getResumen()+ "");
+>>>>>>> Stashed changes
         } else {
             this.jLabelMostrarMensaje.setVisible(true);
             this.jLabelMostrarMensaje.setText("Error, no existe un articulo con ese identificador");
@@ -253,8 +297,11 @@ public class VtnConsultarArticulo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanelMedio;
     private javax.swing.JPanel jPanelMostrarDatos;
     private javax.swing.JPanel jPanelSuperior;
+<<<<<<< Updated upstream
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaConferencias;
+=======
+>>>>>>> Stashed changes
     private javax.swing.JTextField jTextFieldIdArticulo;
     // End of variables declaration//GEN-END:variables
 }

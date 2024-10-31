@@ -95,6 +95,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+<<<<<<< Updated upstream
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabelMostrarMensaje" min="-2" max="-2" attributes="0"/>
@@ -114,6 +115,28 @@
                   <EmptySpace pref="84" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+=======
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelMostrarMensaje" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldIdArticulo" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="jButtonConsultar" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jPanelMostrarDatos" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="256" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,10 +152,14 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabelMostrarMensaje" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+<<<<<<< Updated upstream
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                       <Component id="jPanelMostrarDatos" max="32767" attributes="0"/>
                   </Group>
+=======
+                  <Component id="jPanelMostrarDatos" min="-2" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -186,7 +213,11 @@
                           <Component id="jLabelMNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelMIdArticulo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
+<<<<<<< Updated upstream
                       <EmptySpace pref="118" max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="195" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
                   </Group>
               </Group>
             </DimensionLayout>
@@ -197,7 +228,11 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="jLabelMIdArticulo" min="-2" max="-2" attributes="0"/>
+<<<<<<< Updated upstream
                               <EmptySpace max="-2" attributes="0"/>
+=======
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
                               <Component id="jLabelMNombre" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="jLabelMAutores" min="-2" max="-2" attributes="0"/>
@@ -263,6 +298,7 @@
             </Component>
           </SubComponents>
         </Container>
+<<<<<<< Updated upstream
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -278,6 +314,8 @@
             </Component>
           </SubComponents>
         </Container>
+=======
+>>>>>>> Stashed changes
       </SubComponents>
     </Container>
   </SubComponents>
