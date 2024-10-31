@@ -2,6 +2,7 @@ package co.edu.unicauca.gui.vistas.adminConferencia;
 
 import co.edu.unicauca.gui.servicios.ArticuloServices;
 import co.edu.unicauca.gui.servicios.ConferenciaServices;
+import co.edu.unicauca.gui.vistas.articulos.VtnConsultarArticulo;
 import co.edu.unicauca.gui.vistas.articulos.VtnListarArticulos;
 import co.edu.unicauca.gui.vistas.articulos.VtnRegistrarArticulo1;
 import java.awt.Image;
@@ -20,8 +21,9 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private VtnRegistrarArticulo1 objVtnRegistrarArticulos;
     private VtnListarConferencias objVtnListarConferencias;
     private VtnListarArticulos objVtnListarArticulos;
-    private ConferenciaServices objServicio1;
-    private ArticuloServices objServicio2;
+    private VtnConsultarArticulo objVtnConsultarArticulo;
+    private final ConferenciaServices objServicio1;
+    private final ArticuloServices objServicio2;
 
     /**
      * Constructor de la clase. Inicializa la ventana y establece su icono.
@@ -52,6 +54,9 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         
         this.objVtnListarArticulos = new VtnListarArticulos(this.objServicio2, this.objServicio1);
         this.jDesktopPanelPrincipal.add(this.objVtnListarArticulos);
+        
+        this.objVtnConsultarArticulo = new VtnConsultarArticulo(this.objServicio2);
+        this.jDesktopPanelPrincipal.add(this.objVtnConsultarArticulo);
     }
 
     /**
@@ -74,6 +79,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         jPanelMenu = new javax.swing.JPanel();
         jButtonGestionarConferencias = new javax.swing.JButton();
         jButtonRegistrarArticulo = new javax.swing.JButton();
+        jButtonConsultarArticulo = new javax.swing.JButton();
         jPanelInferior = new javax.swing.JPanel();
         jPanelCentral = new javax.swing.JPanel();
         jDesktopPanelPrincipal = new javax.swing.JDesktopPane();
@@ -100,25 +106,35 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButtonConsultarArticulo.setText("Consultar Articulo");
+        jButtonConsultarArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConsultarArticuloActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
         jPanelMenu.setLayout(jPanelMenuLayout);
         jPanelMenuLayout.setHorizontalGroup(
             jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMenuLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(29, 29, 29)
                 .addComponent(jButtonGestionarConferencias)
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(jButtonRegistrarArticulo)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addComponent(jButtonConsultarArticulo)
+                .addGap(56, 56, 56))
         );
         jPanelMenuLayout.setVerticalGroup(
             jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMenuLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+            .addGroup(jPanelMenuLayout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonGestionarConferencias)
-                    .addComponent(jButtonRegistrarArticulo))
-                .addContainerGap())
+                    .addComponent(jButtonConsultarArticulo)
+                    .addComponent(jButtonRegistrarArticulo)
+                    .addComponent(jButtonGestionarConferencias))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
@@ -127,21 +143,19 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jLabelImagenOrganizacion)
-                .addContainerGap(635, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelImagenOrganizacion)
+                    .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelImagenOrganizacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelSuperior, java.awt.BorderLayout.PAGE_START);
@@ -152,7 +166,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         jPanelInferior.setLayout(jPanelInferiorLayout);
         jPanelInferiorLayout.setHorizontalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 726, Short.MAX_VALUE)
+            .addGap(0, 739, Short.MAX_VALUE)
         );
         jPanelInferiorLayout.setVerticalGroup(
             jPanelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +181,7 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
         jDesktopPanelPrincipal.setLayout(jDesktopPanelPrincipalLayout);
         jDesktopPanelPrincipalLayout.setHorizontalGroup(
             jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
+            .addGap(0, 727, Short.MAX_VALUE)
         );
         jDesktopPanelPrincipalLayout.setVerticalGroup(
             jDesktopPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,15 +213,24 @@ public class VtnPrincipalAdmin extends javax.swing.JFrame {
     private void jButtonRegistrarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarArticuloActionPerformed
         this.objVtnListarArticulos.setVisible(true);
         this.objVtnListarConferencias.setVisible(false);
+        this.objVtnConsultarArticulo.setVisible(false);
     }//GEN-LAST:event_jButtonRegistrarArticuloActionPerformed
 
     private void jButtonGestionarConferenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGestionarConferenciasActionPerformed
         this.objVtnRegistrarArticulos.setVisible(false);
         this.objVtnListarConferencias.setVisible(true);
+        this.objVtnConsultarArticulo.setVisible(false);
     }//GEN-LAST:event_jButtonGestionarConferenciasActionPerformed
+
+    private void jButtonConsultarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarArticuloActionPerformed
+        this.objVtnConsultarArticulo.setVisible(true);
+        this.objVtnRegistrarArticulos.setVisible(false);
+        this.objVtnListarConferencias.setVisible(false);
+    }//GEN-LAST:event_jButtonConsultarArticuloActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonConsultarArticulo;
     private javax.swing.JButton jButtonGestionarConferencias;
     private javax.swing.JButton jButtonRegistrarArticulo;
     private javax.swing.JDesktopPane jDesktopPanelPrincipal;
