@@ -124,7 +124,7 @@
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="jLabelTitulo1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextFieldIdConferencia" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldIdConferencia" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
